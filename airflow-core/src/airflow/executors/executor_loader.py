@@ -225,6 +225,11 @@ class ExecutorLoader:
             # if we haven't loaded the executors yet, such as directly calling load_executor
             cls._get_executor_names()
 
+        log.info(f"executor_name: {executor_name_str}")
+        log.info(f"_classname_to_executors: {_classname_to_executors}")
+        log.info(f"_module_to_executors: {_module_to_executors}")
+        log.info(f"_alias_to_executors: {_alias_to_executors}")
+
         if executor_name := _alias_to_executors.get(executor_name_str):
             return executor_name
         elif executor_name := _module_to_executors.get(executor_name_str):
